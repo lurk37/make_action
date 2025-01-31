@@ -11,17 +11,27 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
         
+      - name: Remove Python 3.13
+        run: |
+          sudo rm -rf /opt/hostedtoolcache/Python/3.13*
+        
       - name: Set up Python
-        uses: actions/setup-python@v4  # v2에서 v4로 업데이트
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.11.7'     # 구체적인 버전 지정
-          check-latest: false          # 최신 버전 자동 업데이트 비활성화
+          python-version: '3.11.7'
+          architecture: 'x64'
+          cache: 'pip'
+          
+      - name: Verify Python version
+        run: |
+          which python
+          python --version
+          pip --version
           
       - name: Install Python dependencies
         run: |
-          python --version  # 설치된 버전 확인
           python -m pip install --upgrade pip
-          pip install pandas requests lxml html5lib
+          python -m pip install pandas requests lxml html5lib
 
       - name: Create directories
         run: |
