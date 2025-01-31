@@ -35,6 +35,6 @@ jobs:
 
           
       - name: Run Python script
-        working-directory: ${{ github.workspace }}  # GitHub workspace 루트 디렉토리 설정
+        working-directory: ${{ github.workspace }}/make_action 
         run: |
-          python ${{ github.workspace }}/KR_SISE_SANG.py
+          python KR_SISE_SANG.py
