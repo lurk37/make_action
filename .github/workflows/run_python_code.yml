@@ -1,7 +1,7 @@
 name: Run Python Code
 on:
   schedule:
-    - cron: '10 21 * * *'  # 매일 21:10 UTC에 실행
+    - cron: '10 21 * * *'
   workflow_dispatch:
 
 jobs:
@@ -12,12 +12,14 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4  # v2에서 v4로 업데이트
         with:
-          python-version: '3.11'
+          python-version: '3.11.7'     # 구체적인 버전 지정
+          check-latest: false          # 최신 버전 자동 업데이트 비활성화
           
       - name: Install Python dependencies
         run: |
+          python --version  # 설치된 버전 확인
           python -m pip install --upgrade pip
           pip install pandas requests lxml html5lib
 
@@ -28,5 +30,3 @@ jobs:
       - name: Run Python script
         run: |
           python KR_SISE_SANG.py
-        env:
-          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}  # LINE 알림을 위한 토큰
