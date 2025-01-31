@@ -102,7 +102,7 @@ def fetch_upper_limit_stocks():
     
     # 결과 저장
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f'/var/autobot/KR_SISE/sise_csv/upper_limit_stocks_{current_time}.csv'
+    filename = f'./sise_csv/upper_limit_stocks_{current_time}.csv'
     
     # sise_csv 폴더가 없으면 생성
     os.makedirs('sise_csv', exist_ok=True)
