@@ -27,4 +27,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Python script
-        run: python run_python.py # 이곳에 실제 파이썬 파일명을 적어주세요.
+        run: python KR_SISE_SANG.py # 이곳에 실제 파이썬 파일명을 적어주세요.
