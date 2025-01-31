@@ -35,7 +35,6 @@ jobs:
 
 
       - name: Run Python script
-        working-directory: ${{ github.workspace }}/.github/workflows
         run: |
           python KR_SISE_SANG.py
           
